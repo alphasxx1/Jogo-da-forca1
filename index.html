@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset ="utf-8"/>
+        <title>Jogo da forca by Marcelo Martins</title>
+        <style type="text/css">
+      h3 {
+    font-size: 25px;
+    color: blue;
+    text-align: center;
+}  
+h5 {
+    font-size: 25px;
+    color: blue;
+    text-align: center;
+}
+h6 {
+    font-size: 12px;
+    color: blue;
+    text-align: left;}
+body {
+   background-color: red;
+}
+#t1{
+    margin-left: 35%;
+}
+header {
+    font-size: 80px;
+    color: blue;
+    text-align: center;
+}
+.missed{
+    margin-top: 55px;
+    width: 45px; height: 45px;
+    border: 2px  solid;
+    float: left;
+}
+#r{
+    margin-left: 42.5%;
+}
+#button2{
+    position: absolute;
+    top:52%;
+    left: 47.5%;
+}
+#button{
+    position: absolute;
+    top: 22%;
+    left: 48%;
+}
+img{
+    height: 350px;
+    width: 100px;
+}
+#forca{
+    position: absolute;
+    left: 300px;
+}
+#z{
+    margin-left: 500px;
+    margin-top: 30px;
+}
+.padrao{
+    position: absolute;
+    width: 1400px;
+    height:630px;
+   background-image: url("bg.jpg");
+   background-color: #cccccc;
+} #rodape{ clear: both; }
+#box2{
+position:absolute;
+top:120px; 
+height: 612px;  
+width: 100%;}
+.h1{ margin-top: 30px;
+border: 1px  solid;
+float: left;
+width: 40px;
+height: 40px;
+}
+        </style>
+        <script type="text/javascript">
+            window.onload= start;
+var possivel = Math.floor(Math.random()*3);
+var p1 = ["s","i","g","n","a","t","a","r","i","o"]; 
+var p1vf= new Array(10);
+var p2 = ["d","i","l","i","g","e","n","t","e"]; 
+var p2vf= new Array(9);
+var p3 = ["c","o","n","v","i","c","ç","a","o"];
+var p3vf= new Array(9);
+var i,a,b,c,cont1=0,cont2=0,cont2=0;
+var wrong = [0,0,0,0,0]; 
+function start(){
+if(possivel==0){
+document.getElementById("palavras").innerHTML = "<div class='h1' id='t1'></div><div class='h1' id='ah1'></div><div class='h1' id='aa2'></div><div class='h1' id='aa3'></div><div class='h1' id='aa4'></div><div class='h1' id='t2'></div><div class='h1' id='aa6'></div><div class='h1' id='aa7'></div><div class='h1' id='aa8'></div><div class='h1' id='aa9'></div>"
+ document.getElementById("button").addEventListener("click",p10); }else if(possivel==1){
+document.getElementById("palavras").innerHTML = "<div class='h1' id='t1'></div><div class='h1' id='ah1'></div><div class='h1' id='aa2'></div><div class='h1' id='aa3'></div><div class='h1' id='aa4'></div><div class='h1' id='t2'></div><div class='h1' id='aa6'></div><div class='h1' id='aa7'></div><div class='h1' id='aa8'></div>"
+document.getElementById("button").addEventListener("click",test);
+}else if (possivel ==2) {
+document.getElementById("palavras").innerHTML = "<div class='h1' id='t1'></div><div class='h1' id='ah1'></div><div class='h1' id='aa2'></div><div class='h1' id='aa3'></div><div class='h1' id='aa4'></div><div class='h1' id='t2'></div><div class='h1' id='aa6'></div><div class='h1' id='aa7'></div><div class='h1' id='aa8'></div>"
+ document.getElementById("button").addEventListener("click",test2);
+ }}
+function p10 (){
+    var check = document.getElementById("jogada").value;console.log("o valor da jogada é: "+check);
+
+document.getElementById("jogada").value="";
+     for(i= 0; i< p1.length; i++){if(check ==p1[i]){
+document.getElementById("aa"+i).innerHTML=check;
+p1vf[i]=2;
+i=10}
+       if(i==9){if (check != p1[i]) {for(a=0;a<wrong.length; a++){if(wrong[a]==0){
+document.getElementById("er"+a).innerHTML =check;
+                    wrong[a]=1;
+    a=5; 
+    }
+        
+    }
+}       }   
+        
+        
+    }
+    
+
+    if ((p1vf[0]==2)&(p1vf[1]==2)&(p1vf[2]==2)&(p1vf[3]==2)&(p1vf[4]==2)&(p1vf[5]==2)&(p1vf[6]==2)&(p1vf[7]==2)&(p1vf[8]==2)&(p1vf[9]==2)){
+        alert("Acertou!");
+    }
+    if ((wrong[0]==1)&(wrong[1]==1)&(wrong[2]==1)&(wrong[3]==1)&(wrong[4]==1)){
+        alert("missed!atualize a pagina para jogar novamente!");
+    }
+}
+
+function test(){
+    var check = document.getElementById("jogada").value;
+    console.log("o valor da jogada é: "+check);
+    document.getElementById("jogada").value="";
+    
+    for(i= 0; i< p2.length; i++){
+        if(check ==p2[i]){
+            for(b= 0; b< p2.length; b++){
+                if(check ==p2[b]){
+                document.getElementById("aa"+b).innerHTML=check;
+                p2vf[b]=2;
+ }
+   }
+ i=9; }
+        if(i==8){
+            if (check != p2[i]) {
+                for(a=0;a<wrong.length; a++){
+                    if(wrong[a]==0){
+                        document.getElementById("er"+a).innerHTML =check;
+                        
+                        wrong[a]=1;
+                        a=5; }
+        
+ } }  }   
+        
+        
+    }
+    
+
+    if ((p2vf[0]==2)&(p2vf[1]==2)&(p2vf[2]==2)&(p2vf[3]==2)&(p2vf[4]==2)&(p2vf[5]==2)&(p2vf[6]==2)&(p2vf[7]==2)&(p2vf[8]==2)){
+        alert("Acertou!");
+    }
+    if ((wrong[0]==1)&(wrong[1]==1)&(wrong[2]==1)&(wrong[3]==1)&(wrong[4]==1)){
+        alert("missed!atualize a pagina para jogar novamente!");
+    }
+
+}
+function test2(){
+var check = document.getElementById("jogada").value;
+    console.log("o valor da jogada é: "+check);
+    document.getElementById("jogada").value="";
+for(i= 0; i< p3.length; i++){
+if(check ==p3[i]){
+for(c= 0; c< p3.length; c++){
+if(check ==p3[c]){ document.getElementById("aa"+c).innerHTML=check; p3vf[c]=2; }
+} i=9; }
+if(i==8){
+if (check != p3[i]) { for(a=0;a<wrong.length; a++){
+if(wrong[a]==0){
+document.getElementById("er"+a).innerHTML =check;
+wrong[a]=1;
+                        a=5;  } } }       
+}   } if ((p3vf[0]==2)&(p3vf[1]==2)&(p3vf[2]==2)&(p3vf[3]==2)&(p3vf[4]==2)&(p3vf[5]==2)&(p3vf[6]==2)&(p3vf[7]==2)&(p3vf[8]==2)){
+        alert("Acertou!");
+    }
+    if ((wrong[0]==1)&(wrong[1]==1)&(wrong[2]==1)&(wrong[3]==1)&(wrong[4]==1)){
+        alert(" missed!,atualize a pagina para jogar novamente");
+    }
+
+}
+
+
+function clean(){
+    window.location.reload(); 
+
+
+}
+</script>
+</head><body>
+<header>JOGO DA FORCA</header>
+<div id="palavras"></div><br><br><br><br><br>
+<h3>Digite uma letra: <input id="jogada" type="text" name="jogadas" size="1" maxlength="1" ><br></h3>
+<button type= "button" id='button' >tentar!</button><br><br><br><br>
+<h5>Wrong letters:</h5>
+<div class="missed" id='r'></div>
+<div class="missed" id='r1'></div>
+<div class="missed" id='r2'></div>
+<div class="missed" id='r3'></div>
+<div class="missed" id='r4'></div><br>
+<h6>Feito por: Marcelo Martins</h6>
+</div>
+            </div>
+           
+        </div>              
+    </body>
+    
+</html>
